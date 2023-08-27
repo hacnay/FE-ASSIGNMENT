@@ -1,0 +1,130 @@
+body {
+  font-family: 'Syne', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url("bg.jpg");
+  background: url("bg.jpg") center / auto no-repeat fixed;
+}
+
+header {
+  background-color: #000;
+  color: #fff;
+  padding: 2px 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+}
+
+nav li {
+  margin: 0 20px;
+  position: relative;
+}
+
+nav li:hover ul {
+  display: block;
+}
+
+nav ul ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+nav ul ul li {
+  width: 200px;
+  padding: 10px;
+}
+
+#banner {
+  background: url('banner.jpg') center / cover;
+  padding: 50px 0;
+  text-align: left;
+}
+
+#banner h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: 60px;
+  font-weight: bold;
+  color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  background: linear-gradient(45deg, #000, #cac0a8, #ffa600);
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: gradient-animation 1s ease-in, word-animation 5s ease-out 1 forwards;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes word-animation {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#product-list, #contact-form {
+  padding: 50px 0;
+}
+
+#contact-form {
+  background: url("foot.jpg") center / cover;
+  text-align: center;
+}
+
+#contact-form input,
+#contact-form textarea,
+#contact-form button {
+  margin: 10px;
+  padding: 10px;
+  width: 55%;
+  box-sizing: border-box;
+}
+
+#contact-form button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+#contact-form button:hover {
+  background-color: #555;
+}
+
+#product-list {
+  color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.product {
+  width: 200px;
+  margin: 20px;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  text-align: center;
+}
+
+.product img {
+  max-width: 50%;
+  height: auto;
+}
