@@ -4,12 +4,7 @@ const navbar = [
   {
     name: 'Our Products',
     id: 'product',
-    child: [
-      { name: 'Product 1', id: 'p1' },
-      { name: 'Product 2', id: 'p2' },
-      { name: 'Product 3', id: 'p3' },
-      { name: 'Product 4', id: 'p4' },
-    ],
+    child: [],
   },
   { name: 'Contact Us', id: 'contact' },
 ];
@@ -36,6 +31,28 @@ function createMenu() {
 
     navbarElement.appendChild(li);
   });
+}
+
+async function fetchCategories() {
+  const response = await fetch('https://fakestoreapi.com/products/categories');
+  const categories = await response.json();
+  return categories;
+}
+
+function populateCategories(categories) {
+  const productsMenu = navbar.find(item => item.id === 'product');
+
+  categories.forEach(category => {
+    const categoryItem = { name: category, id: category.toLowerCase().replace(' ', '-') };
+    productsMenu.child.push(categoryItem);
+  });
+}
+
+async function initializePage() {
+  const categories = await fetchCategories();
+  populateCategories(categories);
+  createMenu();
+  fetchProducts();
 }
 
 async function fetchProducts() {
@@ -72,5 +89,4 @@ contactForm.addEventListener('submit', function(event) {
   }
 });
 
-createMenu();
-fetchProducts();
+initializePage();
